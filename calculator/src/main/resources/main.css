@@ -1,0 +1,98 @@
+/* ---------- базовая тема ---------- */
+.root {
+    -fx-font-family: "Inter", "Segoe UI", "Roboto", "Arial";
+    -fx-font-size: 14px;
+    -fx-background-color: linear-gradient(to bottom, #f7f8fb, #eef1f6);
+}
+
+/* заголовки */
+.label {
+    -fx-text-fill: #1f2937;
+}
+.label:focused {
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.05), 5,0,0,1 );
+}
+.label[styleClass~="h1"] { -fx-font-size: 24px; -fx-font-weight: bold; }
+.label[styleClass~="h2"] { -fx-font-size: 18px; -fx-font-weight: bold; }
+
+/* кнопки */
+.button {
+    -fx-background-radius: 10;
+    -fx-padding: 8 16;
+    -fx-background-color: linear-gradient(to bottom, #4f46e5, #4338ca);
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 8,0,0,2);
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #6366f1, #4f46e5);
+}
+.button:pressed { -fx-translate-y: 1; }
+.button:disabled { -fx-opacity: 0.5; }
+
+/* вторичные кнопки */
+.button.secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #374151;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 10;
+}
+.button.secondary:hover { -fx-background-color: #f3f4f6; }
+
+/* текстовые поля и комбобоксы */
+.text-field, .password-field, .combo-box, .date-picker {
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 10;
+    -fx-padding: 8 12;
+}
+.text-field:focused, .password-field:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #6366f1;
+    -fx-effect: dropshadow(gaussian, rgba(99,102,241,0.2), 8,0,0,2);
+}
+
+/* таблицы */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 8;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f3f4f6);
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 12 12 0 0;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #374151;
+    -fx-font-weight: 600;
+}
+.table-row-cell:filled:selected, .table-cell:filled:selected {
+    -fx-background-color: rgba(99,102,241,0.18);
+    -fx-text-fill: #111827;
+}
+
+/* SplitPane и контейнеры */
+.split-pane { -fx-background-color: transparent; }
+.split-pane-divider { -fx-background-color: #e5e7eb; }
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* декоративные контейнеры */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: #e5e7eb;
+    -fx-border-radius: 14;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 12,0,0,4);
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.calculator.ui.RegisterController"
+            prefWidth="900" prefHeight="600" style="-fx-padding: 18;">
+    <center>
+        <!-- Центрируем компактную форму внутри растягивающегося окна -->
+        <VBox alignment="CENTER">
+            <VBox spacing="12" alignment="CENTER" style="-fx-padding: 18;" maxWidth="420">
+                <Label text="Регистрация" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10" maxWidth="Infinity">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="Логин:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="loginField" promptText="Введите логин" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Пароль:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="passField" promptText="Мин. 6 символов" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Повтор пароля:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="confirmField" promptText="Повторите пароль" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label fx:id="errorLabel" textFill="red" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <Button text="Зарегистрироваться" onAction="#onRegister"/>
+                    <Button text="Отмена" onAction="#onCancel"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.calculator.ui.HistoryOhmsController"
+      spacing="10" style="-fx-padding: 14;">
+    <Label text="История — Закон Ома" style="-fx-font-size:18; -fx-font-weight:bold;"/>
+    <TableView fx:id="table" prefHeight="360"/>
+    <HBox spacing="10">
+        <Button text="Назад" onAction="#onBack"/>
+        <Button text="Сбросить фильтры" onAction="#onResetFilters"/>
+    </HBox>
+</VBox>

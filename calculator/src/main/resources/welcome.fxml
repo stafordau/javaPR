@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.calculator.ui.WelcomeController"
+      spacing="16" alignment="CENTER" prefWidth="420" prefHeight="260" style="-fx-padding: 20;">
+    <Label fx:id="welcomeLabel" style="-fx-font-size: 20; -fx-font-weight: bold;" text="Добро пожаловать"/>
+    <HBox spacing="12" alignment="CENTER">
+        <Button text="Калькулятор закон Ома" onAction="#onOhms"/>
+        <Button text="Калькулятор делителя напряжения" onAction="#onDivider"/>
+    </HBox>
+    <Button text="История" onAction="#onHistory"/>
+    <Hyperlink text="Выйти из аккаунта" onAction="#onLogout"/>
+</VBox>

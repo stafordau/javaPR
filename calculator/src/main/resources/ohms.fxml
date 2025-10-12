@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.calculator.ui.OhmsController"
+            prefWidth="520" prefHeight="300" style="-fx-padding: 18;">
+    <center>
+        <VBox alignment="CENTER">
+            <Label text="Калькулятор — закон Ома" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+
+            <!-- V -->
+            <HBox spacing="8" alignment="CENTER" prefWidth="480">
+                <Label text="Напряжение V:" minWidth="150" />
+                <TextField fx:id="vField" promptText="значение"/>
+                <ComboBox fx:id="vUnit" prefWidth="120"/>
+            </HBox>
+
+            <!-- I -->
+            <HBox spacing="8" alignment="CENTER" prefWidth="480">
+                <Label text="Ток I:" minWidth="150" />
+                <TextField fx:id="iField" promptText="значение"/>
+                <ComboBox fx:id="iUnit" prefWidth="120"/>
+            </HBox>
+
+            <!-- R -->
+            <HBox spacing="8" alignment="CENTER" prefWidth="480">
+                <Label text="Сопротивление R:" minWidth="150" />
+                <TextField fx:id="rField" promptText="значение"/>
+                <ComboBox fx:id="rUnit" prefWidth="120"/>
+            </HBox>
+
+            <Button text="Рассчитать" onAction="#onCalculate" maxWidth="200"/>
+
+            <Hyperlink text="Назад" onAction="#onBack"/>
+        </VBox>
+    </center>
+</BorderPane>

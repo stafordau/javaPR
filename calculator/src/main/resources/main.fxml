@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.calculator.ui.MainController"
+      spacing="14" alignment="CENTER" prefWidth="360" prefHeight="240"
+      stylesheets="@main.css" styleClass="root">
+    <Label text="Калькулятор" style="-fx-font-size: 64px; -fx-font-weight: bold;"/>
+    <Button text="Войти"            onAction="#onLogin"     maxWidth="220"/>
+    <Button text="Зарегистрироваться" onAction="#onRegister" maxWidth="220"/>
+    <Button text="Выйти"            onAction="#onExit"      maxWidth="220"/>
+    <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+</VBox>

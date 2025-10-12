@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GradeBook — Список оценок</title>
+    <link rel="stylesheet" th:href="@{/css/grades.css}">
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-bar">
+        <div class="brand"><span class="logo">📘</span><strong>GradeBook</strong></div>
+        <nav class="nav">
+            <a th:href="@{/grades}" class="nav-link active">Список</a>
+            <a th:href="@{/grades/new}" class="nav-link primary">Добавить</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container section">
+    <div class="section-head">
+        <h2>Список оценок</h2>
+        <a class="btn" th:href="@{/grades/new}">+ Добавить</a>
+    </div>
+
+    <div th:if="${msg}" class="alert" th:text="${msg}"></div>
+
+    <div class="card no-pad">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Студент</th>
+                <th>Предмет</th>
+                <th>Оценка</th>
+                <th class="center">Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="g : ${grades}">
+                <td th:text="${g.id}">1</td>
+                <td th:text="${g.studentName}">Иван Иванов</td>
+                <td th:text="${g.subject}">Математика</td>
+                <td><span class="badge" th:text="${g.grade}">95</span></td>
+                <td class="row-actions">
+                    <a class="btn ghost" th:href="@{|/grades/${g.id}/edit|}">Редактировать</a>
+                    <form th:action="@{|/grades/${g.id}/delete|}" method="post" onsubmit="return confirm('Удалить запись?');">
+                        <button class="btn danger" type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(grades)}">
+                <td colspan="5" class="empty">Пока нет записей. Нажмите «Добавить».</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

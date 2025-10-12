@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.calculator.ui.HistoryDividerController"
+      spacing="10" style="-fx-padding: 14;">
+    <Label text="История — Делитель напряжения" style="-fx-font-size:18; -fx-font-weight:bold;"/>
+
+    <HBox spacing="8">
+        <Label text="Поиск:"/>
+        <TextField fx:id="searchField" promptText="начните вводить..."/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Назад" onAction="#onBack"/>
+    </HBox>
+
+    <TableView fx:id="table" prefHeight="520">
+        <columns>
+            <TableColumn fx:id="loginCol"   text="Пользователь" prefWidth="140"/>
+            <TableColumn fx:id="topoCol"    text="Схема"        prefWidth="160"/>
+            <TableColumn fx:id="valuesCol"  text="Номиналы"     prefWidth="420"/>
+            <TableColumn fx:id="voutCol"    text="Vout, В"      prefWidth="80"/>
+            <TableColumn fx:id="errCol"     text="Ошибка, %"    prefWidth="100"/>
+            <TableColumn fx:id="cntCol"     text="Элементы"     prefWidth="90"/>
+            <TableColumn fx:id="powerCol"   text="Мощность, мВт" prefWidth="120"/>
+            <TableColumn fx:id="createdCol" text="Когда"        prefWidth="130"/>
+        </columns>
+    </TableView>
+</VBox>

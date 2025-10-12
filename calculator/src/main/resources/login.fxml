@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.calculator.ui.LoginController"
+            prefWidth="900" prefHeight="600" style="-fx-padding: 18;">
+    <center>
+        <VBox spacing="12" alignment="CENTER" style="-fx-padding: 18;" maxWidth="420">
+            <Label text="Вход" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" minWidth="100"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Логин:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="loginField" promptText="Логин" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Пароль:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="passField" promptText="Пароль" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label fx:id="errorLabel" textFill="red" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Войти" onAction="#onLogin"/>
+                <Button text="Отмена" onAction="#onCancel"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.calculator.ui.DividerController"
+            prefWidth="1100" prefHeight="650">
+
+    <center>
+        <SplitPane dividerPositions="0.5">
+            <StackPane fx:id="canvasPane" style="-fx-background-color: white;">
+                <Canvas fx:id="canvas" width="520" height="520"/>
+            </StackPane>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+                <VBox spacing="12" style="-fx-padding:18;">
+                    <Label text="Калькулятор делителя напряжения"
+                           style="-fx-font-size:20; -fx-font-weight:bold;"/>
+
+                    <GridPane hgap="10" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Vin (В):" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="vinField" text="12" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="V требуемое (В):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="vreqField" text="5" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Допуск (±%):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="tolField" text="1" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Ряд:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="seriesBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="R min (Ом):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="rminField" text="100" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <Label text="R max (Ом):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextField fx:id="rmaxField" text="10000" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <HBox spacing="10">
+                        <Button text="Рассчитать" onAction="#onCalculate"/>
+                        <Button text="Назад" onAction="#onBack"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <Label text="Подобранная схема" style="-fx-font-weight:bold;"/>
+                    <GridPane hgap="10" vgap="6">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="140" halignment="RIGHT"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Схема:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <Label fx:id="topologyLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Номиналы:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <Label fx:id="valuesLabel" wrapText="true" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Vout (В):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <Label fx:id="voutLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Ошибка (%):" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <Label fx:id="errLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Элементы:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <Label fx:id="countLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <Label text="Мощность (мВт):" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <Label fx:id="powerLabel" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                    </GridPane>
+
+                    <Label fx:id="statusLabel" style="-fx-text-fill:#555;"/>
+                </VBox>
+            </ScrollPane>
+        </SplitPane>
+    </center>
+</BorderPane>

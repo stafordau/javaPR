@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title th:text="${title} ?: 'Оценка'">Оценка</title>
+  <link rel="stylesheet" th:href="@{/css/grades.css}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-bar">
+    <div class="brand"><span class="logo">📘</span><strong>GradeBook</strong></div>
+    <nav class="nav">
+      <a th:href="@{/grades}" class="nav-link">Список</a>
+      <a th:href="@{/grades/new}" class="nav-link primary">Добавить</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container section">
+  <div class="section-head">
+    <h2 th:text="${title}">Карточка оценки</h2>
+    <a class="btn ghost" th:href="@{/grades}">Назад к списку</a>
+  </div>
+
+  <form class="card form"
+        th:action="${grade.id} != null ? @{|/grades/${grade.id}|} : @{/grades}"
+        method="post" th:object="${grade}">
+
+    <div class="grid-2">
+      <div class="field" th:classappend="${#fields.hasErrors('studentName')} ? ' has-error'">
+        <label for="studentName">Студент <span class="req">*</span></label>
+        <input id="studentName" type="text" th:field="*{studentName}" placeholder="Иван Иванов">
+        <small class="error" th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}"></small>
+      </div>
+
+      <div class="field" th:classappend="${#fields.hasErrors('subject')} ? ' has-error'">
+        <label for="subject">Предмет <span class="req">*</span></label>
+        <input id="subject" type="text" th:field="*{subject}" placeholder="Математика">
+        <small class="error" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}"></small>
+      </div>
+    </div>
+
+    <div class="field" th:classappend="${#fields.hasErrors('grade')} ? ' has-error'">
+      <label for="grade">Оценка (0–100) <span class="req">*</span></label>
+      <input id="grade" type="number" min="0" max="100" th:field="*{grade}" placeholder="95">
+      <small class="error" th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}"></small>
+    </div>
+
+    <div class="form-actions">
+      <a class="btn ghost" th:href="@{/grades}">Отмена</a>
+      <button class="btn" type="submit"
+              th:text="${grade.id} != null ? 'Сохранить' : 'Добавить'">Сохранить</button>
+    </div>
+  </form>
+</main>
+
+</body>
+</html>
