@@ -27,19 +27,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
-                        // статика и страницы регистрации/логина доступны всем
-                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-                        .requestMatchers("/register", "/login").permitAll()
-
-                        // страницы добавления/редактирования/удаления — только ADMIN
-                        .requestMatchers("/grades/new", "/grades/*/edit", "/grades/*/delete").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.POST, "/grades/**").hasRole("ADMIN")
-
-                        // просмотр списка /grades (и, если есть, /grades/{id}) — USER или ADMIN
-                        .requestMatchers(HttpMethod.GET, "/grades/**").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/", "/home").hasAnyRole("USER", "ADMIN")
-
-                        // всё остальное — только авторизованные
+                        .requestMatchers("/login", "/register", "/css/**", "/js/**").permitAll()
+                        .requestMatchers("/api/grades/**").permitAll()
                         .anyRequest().authenticated()
                 )
 

@@ -1,0 +1,152 @@
+/* ===== GradeBook — JavaFX стилизация (в духе сайта) =====
+   Палитра и настроение взяты из grades.css (mint/light) */
+.root{
+  -bg: #f6fbf9;
+  -ink: #1f2937;
+  -muted: #6b7280;
+  -primary: #14b8a6;
+  -primary-weak: #e6fffb;
+  -accent: #6366f1;
+  -danger: #f43f5e;
+  -border: #dbe3df;
+
+  -fx-font-family: "Inter", "Segoe UI", "Roboto", "Arial";
+  -fx-font-size: 16px;
+
+  /* фон как на сайте: мягкий mint */
+  -fx-background-color:
+      radial-gradient(center 15% 0%, radius 600px, #e8fffa, -bg);
+}
+
+/* Header */
+.site-header{
+  -fx-background-color: rgba(255,255,255,0.92);
+  -fx-border-color: -border;
+  -fx-border-width: 0 0 1 0;
+}
+.brand .logo{
+  -fx-font-size: 18px;
+}
+.brand-title{
+  -fx-font-weight: 800;
+  -fx-text-fill: -ink;
+}
+
+/* Nav buttons */
+.nav-link{
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-text-fill: -muted;
+  -fx-padding: 8 12;
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  -fx-cursor: hand;
+}
+.nav-link:hover{
+  -fx-text-fill: -ink;
+  -fx-border-color: -border;
+  -fx-border-width: 1;
+}
+.nav-link.primary{
+  -fx-background-color: -primary;
+  -fx-text-fill: white;
+}
+.nav-link.active{
+  -fx-text-fill: -ink;
+  -fx-border-color: -border;
+  -fx-border-width: 1;
+}
+
+/* Container / section */
+.container{
+  -fx-max-width: 980px;
+}
+.section-head .h2{
+  -fx-font-size: 22px;
+  -fx-font-weight: 700;
+  -fx-text-fill: -ink;
+}
+
+/* Card */
+.card{
+  -fx-background-color: white;
+  -fx-border-color: -border;
+  -fx-border-radius: 16;
+  -fx-background-radius: 16;
+  -fx-effect: dropshadow(gaussian, rgba(15,23,42,0.06), 20, 0.0, 0, 8);
+  -fx-padding: 18;
+}
+.card.no-pad{
+  -fx-padding: 0;
+}
+
+/* Buttons внутри таблицы */
+.btn{
+  -fx-background-color: -primary;
+  -fx-text-fill: white;
+  -fx-border-color: -primary;
+  -fx-padding: 8 12;
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  -fx-cursor: hand;
+}
+.btn:hover{ -fx-opacity: 0.95; }
+.btn-ghost{
+  -fx-background-color: white;
+  -fx-text-fill: -ink;
+  -fx-border-color: -border;
+}
+.btn-danger{
+  -fx-background-color: -danger;
+  -fx-border-color: -danger;
+  -fx-text-fill: white;
+}
+
+/* TableView */
+.table{
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+}
+.table .column-header-background{
+  -fx-background-color: -primary-weak;
+  -fx-border-color: -border;
+  -fx-border-width: 0 0 2 0;
+  -fx-background-radius: 16 16 0 0;
+}
+.table .column-header, .table .filler{
+  -fx-background-color: transparent;
+}
+.table .column-header .label{
+  -fx-font-weight: 700;
+  -fx-text-fill: -muted;
+  -fx-padding: 10 12;
+}
+
+.table .table-row-cell{
+  -fx-background-color: white;
+  -fx-border-color: -border;
+  -fx-border-width: 0 0 1 0;
+}
+.table .table-row-cell:filled:selected,
+.table .table-row-cell:filled:selected:hover{
+  -fx-background-color: rgba(20,184,166,0.12);
+}
+
+.table .table-cell{
+  -fx-padding: 10 12;
+  -fx-text-fill: -ink;
+}
+
+.row-actions{
+  -fx-alignment: center;
+}
+
+/* Dialog labels/errors */
+.field-label{
+  -fx-text-fill: -muted;
+  -fx-font-weight: 600;
+}
+.error{
+  -fx-text-fill: #be123c;
+  -fx-font-size: 12px;
+}

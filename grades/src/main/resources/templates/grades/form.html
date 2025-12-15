@@ -19,7 +19,7 @@
       <a sec:authorize="isAnonymous()" th:href="@{/login}" class="nav-link">Войти</a>
       <a sec:authorize="isAnonymous()" th:href="@{/register}" class="nav-link">Регистрация</a>
 
-      <!-- если вошёл -->
+
       <span sec:authorize="isAuthenticated()" class="nav-link">
                 Привет, <strong sec:authentication="name"></strong>
             </span>
